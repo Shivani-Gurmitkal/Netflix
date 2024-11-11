@@ -5,7 +5,7 @@ function MoviesCard({img,slug}){
         <>
         <Link to={`/details/${slug}`}>
         <div className="">
-            <img src={img} className="w-[140px] h-[140px] object-cover" alt="" />
+            <img src={img} className="object-cover" alt="" />
         </div>
         </Link>
         </>

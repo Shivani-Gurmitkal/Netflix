@@ -18,6 +18,7 @@ let Done = ()=>(
 
 function Details(){
     let [watchList, setWatchList] = useState(true)
+    
     let {slug} = useParams() // useParams always returns the object so we need to de-structure
     let movie = movies.find((movie)=>{
         return movie.slug == slug
@@ -34,7 +35,7 @@ function Details(){
     return (
         <>
         <div className="relative w-full h-full overflow-hidden">
-            <ReactPlayer width="100vw" height="100vh" className="scale-[1.50]"  loop="true" playing="true" url={movie.youtube_trailer} />
+            <ReactPlayer width="100vw" height="100vh" className="scale-[1.50]" loop="true" playing="true" url={movie.youtube_trailer} />
 
             <Link to="/" className="absolute top-8 left-16">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-left fill-white" viewBox="0 0 16 16">
@@ -44,10 +45,10 @@ function Details(){
             
             <div className="absolute top-44 left-16 w-[450px] border-l-2 border-[#D81F26] px-2 bg-[#00000002]">
                 <h1 className="text-white text-4xl font-bold tracking-wide">{movie.title}</h1>
-                <p className="text-neutral-50 mt-2">{movie.description}</p>
+                <p className="text-neutral-50 mt-2 text-sm w-[400px]">{movie.description}</p>
             </div>
 
-            <div className="absolute top-72 left-16 flex gap-4 mt-10">
+            <div className="absolute top-[275px] left-16 flex gap-4 mt-10">
             <button className="flex items-center gap-1 font-semibold text-xl text-black bg-white px-6 py-3 rounded-md " ><span><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
                 <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
             </svg></span>Play</button>
@@ -55,7 +56,7 @@ function Details(){
             </div>
             </div>
 
-            <div className="ml-16 mt-3 mb-4">
+            <div className="ml-14 mt-3 mb-4">
                 <h1 className="text-white font-semibold text-xl">More like this</h1>
                 <div className="ml-8 flex mt-4 gap-6">
                 {

@@ -1,7 +1,11 @@
 import ReactPlayer from "react-player";
 import movies from '../movies';
-import MoviesCard from "../components/MoviesCard";
+import Card from "../components/Card";
 import { useState } from "react";
+// import { Link } from "react-router-dom";
+import MoviesCard from "../components/MoviesCard";
+import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 let UnmuteIcon = ()=>(
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-up fill-white" viewBox="0 0 16 16">
@@ -27,29 +31,7 @@ function Home(){
         <div className="relative w-full h-[100vh] overflow-hidden">
             <ReactPlayer width="100vw" className="scale-[1.50]" height="100vh" muted={volume} loop="true" playing="true" url='<iframe width="560" height="315" src="https://www.youtube.com/embed/MD7v0-igVIM?si=TjkIhnhiDnNKtcU5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>' /> 
             
-            <div className="bg w-full flex items-center  justify-between absolute top-0  text-white">
-            <div className="flex items-center gap-10">
-            <img src="src\assets\Netflix-Logo.png" className="w-[100px] ml-10" alt="" />
-            <div className="flex items-center gap-5 font-semibold text-sm">
-                <p>Home</p>
-                <p className="text-[#b8b8b8]">TV Shows</p>
-                <p className="text-[#b8b8b8]">Movies</p>
-                <p className="text-[#b8b8b8]">New & Popular</p>
-                <p className="text-[#b8b8b8]">My List</p>
-                <p className="text-[#b8b8b8]">Browse by Languages</p>
-            </div>
-            </div>
-
-            <div className="flex items-center gap-5 mr-28">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-            </svg>
-            <p>Children</p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
-                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"/>
-            </svg>
-            </div>
-        </div>
+            <NavBar/>
 
         <div className="absolute top-72 left-16">
             <h1 className="text-white text-4xl font-bold tracking-wide border-l-2 border-[#D81F26] px-2">Singham Again</h1>
@@ -67,18 +49,20 @@ function Home(){
 
         <div className="absolute right-0 bottom-16 flex gap-4 items-center">
         <button onClick={volumeHandler} className="border-white border w-10 h-10 rounded-full flex items-center justify-center bg-[#eeeeee0c]"> {volume ? <MuteIcon />: <UnmuteIcon/>} </button>
-        <div className="bg-[#363b368d] px-1 py-1 text-white">U/A 12+</div>
+        <div className="bg-[#363b368d] px-2 py-1 text-white w-20 border-l-2 border-white">U/A 12+</div>
         </div>
         </div>
 
-        <div className="ml-16 mt-3 mb-4">
-            <h1 className="text-white font-semibold text-xl">Top 10 Movies in India Today </h1>
-           <div className="ml-8 flex mt-4 gap-6">
+        <div className="ml-14 mt-3 mb-20">
+            <h1 className="text-white font-semibold text-xl">Because you watched Khahkee: The Bihar Chapter </h1>
+           <div className=" flex mt-2 gap-2">
            {
                  movies.map(movie=> <MoviesCard img={movie.img} slug={movie.slug}/>)
             }
            </div>
         </div>
+
+        <Footer/>
 
         </>
     )
