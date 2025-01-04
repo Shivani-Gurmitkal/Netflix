@@ -41,9 +41,9 @@ function Movies(){
             <div className="flex items-center gap-10">
             <img src="src\assets\Netflix-Logo.png" className="w-[100px] ml-10" alt="" />
             <div className="flex items-center gap-5 font-semibold text-sm">
-                <p>Home</p>
+                <Link to="/"><p className="text-[#b8b8b8] hover:text-neutral-400 ">Home</p></Link>
                 <p className="text-[#b8b8b8] hover:text-neutral-400 hover:cursor-pointer">TV Shows</p>
-                <Link to="/movies"><p className="text-[#b8b8b8] hover:text-neutral-400">Movies</p></Link>
+                <p>Movies</p>
                 <p className="text-[#b8b8b8] hover:text-neutral-400 hover:cursor-pointer">New & Popular</p>
                 <p className="text-[#b8b8b8] hover:text-neutral-400 hover:cursor-pointer">My List</p>
                 <p className="text-[#b8b8b8] hover:text-neutral-400 hover:cursor-pointer">Browse by Languages</p>
