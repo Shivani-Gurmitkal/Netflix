@@ -1,10 +1,23 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 
 function NavBar(){
+    const [isScrolled, setIsScrolled] = useState(false);
+    
+    useEffect(() => {
+        const handleScroll = () => {
+          setIsScrolled(window.scrollY > 50); // Change color after scrolling 50px
+        };
+    
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+      }, []);
+
     return (
         <>
-        <div className="bg w-full flex items-center  justify-between absolute top-0  text-white">
+        
+        <div className={`bg w-full flex items-center justify-between fixed top-0 z-50 text-white transition-colors duration-500 ease-in-out ${isScrolled ? "bg-black bg-opacity-90" : "bg-transparent"}`}>
             <div className="flex items-center gap-10">
             <img src="src\assets\Netflix-Logo.png" className="w-[100px] ml-10" alt="" />
             <div className="flex items-center gap-5 font-semibold text-sm">

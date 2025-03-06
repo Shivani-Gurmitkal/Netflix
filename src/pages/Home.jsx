@@ -1,8 +1,6 @@
 import ReactPlayer from "react-player";
 import movies from '../movies';
-import Card from "../components/Card";
 import { useState } from "react";
-// import { Link } from "react-router-dom";
 import MoviesCard from "../components/MoviesCard";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
@@ -29,7 +27,7 @@ function Home(){
     return (
         <>
         <div className="relative w-full h-[100vh] overflow-hidden">
-            <ReactPlayer width="100vw" className="scale-[1.50]" height="100vh" muted={volume} loop="true" playing="true" url='<iframe width="560" height="315" src="https://www.youtube.com/embed/MD7v0-igVIM?si=TjkIhnhiDnNKtcU5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>' /> 
+            <ReactPlayer width="100vw" className="scale-[1.50]" height="100vh" muted={volume} loop={true} playing={true} url='<iframe width="560" height="315" src="https://www.youtube.com/embed/MD7v0-igVIM?si=TjkIhnhiDnNKtcU5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>' /> 
             
             <NavBar/>
 
@@ -57,7 +55,7 @@ function Home(){
             <h1 className="text-white font-semibold text-xl">Because you watched Khahkee: The Bihar Chapter </h1>
            <div className=" flex mt-2 gap-2">
            {
-                 movies.map(movie=> <MoviesCard img={movie.img} slug={movie.slug}/>)
+                 movies.map(movie=> <MoviesCard key={movie.slug} img={movie.img} slug={movie.slug}/>)
             }
            </div>
         </div>
